@@ -1,23 +1,28 @@
-/* I made some modifcation to the assignment since I thought
-that this makes more logical sense
+import processing.core.*; 
+import processing.data.*; 
+import processing.event.*; 
+import processing.opengl.*; 
 
-First For the Cow, Chick, and Pig I made the constructors
-have no varaible since the type and sounds should stay the same
-for each instance of the class.
+import java.util.HashMap; 
+import java.util.ArrayList; 
+import java.io.File; 
+import java.io.BufferedReader; 
+import java.io.PrintWriter; 
+import java.io.InputStream; 
+import java.io.OutputStream; 
+import java.io.IOException; 
 
-Second instead having a double variable constructor for the chick
-sound, I made the two sounds being selected during the constructor instanzation
-by Math.random().
+public class OldMacDonald extends PApplet {
 
-Finally for the NamedCow Class I made a 1 variable Constructor since the 
-name of the Cow does change per Cow
-*/ 
+
+//your variable declarations here
 Farm myFarm = new Farm();
-void setup()
+public void setup()
 {
+	//your java code here
  	myFarm.rollCall();
 }
-
+//declare classes and the interface below
 interface Animal
 {
 	public String getType();
@@ -66,7 +71,7 @@ class Chick implements Animal
 	Chick()
 	{
 		getType = "Chicken";
-		if(Math.random() < .5)
+		if(Math.random() < .5f)
 		  	getSound = "Cluck!!";
 		else 
  	 	 	getSound = "Cheep!!";
@@ -123,4 +128,13 @@ class Farm
 		}
 
 	}
+}
+  static public void main(String[] passedArgs) {
+    String[] appletArgs = new String[] { "OldMacDonald" };
+    if (passedArgs != null) {
+      PApplet.main(concat(appletArgs, passedArgs));
+    } else {
+      PApplet.main(appletArgs);
+    }
+  }
 }
